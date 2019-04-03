@@ -4,7 +4,6 @@ import java.util.Set;
 
 import javax.swing.text.html.HTMLDocument.Iterator;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -46,6 +45,7 @@ public class TestCases extends ReusablesXero
 		initializeDriver();
 		extentReports("TC1A");
 
+		
 		launchUrl("https://login.xero.com/","TcX1");
 		WebElement un = findElement(By.xpath("//input[@placeholder='Email address']"), "Username");
 		enterText(un, "Username", "sasi14585@gmail.com");
@@ -85,7 +85,7 @@ try {
 
 		String string1=findElement(By.xpath("//p[contains(text(),'Your email or password is incorrect')]"), "Error msg").getText();
 		String string2="Your email or password is incorrect";
-		Assert.assertEquals(string1,string2);
+		validateText(string1,string2);
 		System.out.println("Error message :" + string1);
 		logger.log( LogStatus.PASS, "Error message :" + string1);
 }
@@ -113,7 +113,7 @@ try {
 		clickButton(log,"Login");
 		String string1=findElement(By.xpath("//li[contains(text(),'Your email or password is incorrect')]"), "Error msg").getText();
 		   String string2="Your email or password is incorrect";
-		   Assert.assertEquals(string1,string2);
+		   validateText(string1,string2);
 		   System.out.println("Error message :" + string1);
 		   logger.log( LogStatus.PASS, "Error message :" + string1);
 		  }catch(Exception E)
@@ -216,18 +216,18 @@ try {
 		WebElement fn = findElement(By.xpath("//span[contains(text(),\"First name can't be empty\")]"), "First name");
 		String str1=fn.getText();
 		String str2="First name can't be empty";
-		Assert.assertEquals(str1,str2);
+		validateText(str1,str2);
 		WebElement ln = findElement(By.xpath("//span[contains(text(),\"Last name can't be empty\")]"), "Last name");
 		String str3=ln.getText();
 		String str4="Last name can't be empty";
-		Assert.assertEquals(str3,str4);
+		validateText(str3,str4);
 		WebElement em = findElement(By.xpath("//input[@name='EmailAddress']"), "Email Address");
 		enterText(em, "Email Address", "sasii5@gmail");
 
 		WebElement Pn = findElement(By.xpath("//span[contains(text(),\"Phone number can't be empty\")]"), "Phone number");
 		String str7=Pn.getText();
 		String str8="Phone number can't be empty";
-		Assert.assertEquals(str7,str8);
+		validateText(str7,str8);
 		WebElement dd= findElement(By.xpath("//*[@class='form-select-arrow icon']"), "DropDown");
 		  enterText(dd, "DropDown", "United States");
 
@@ -241,7 +241,7 @@ try {
 		WebElement email = findElement(By.xpath("//span[@id='signup-form-error-message-6']"), "Email address is invalid");
 		String  str5=email.getText();
 		String str6="Email address is invalid";
-		Assert.assertEquals(str5,str6);
+		validateText(str5,str6);
 		}
 		catch(Exception E)
 		{
